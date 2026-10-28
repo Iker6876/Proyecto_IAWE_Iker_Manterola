@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transacciones · SatsExplorer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="transacciones">
+  <div id="cabecera"></div>
+
+  <main class="contenedor">
+    <div class="titulo">
+      <div>
+        <h1>Transacciones</h1>
+        <p>Todas las transacciones de un bloque concreto. Indica su altura o su hash.</p>
+      </div>
+    </div>
+
+    <form class="formulario" id="form-bloque">
+      <input type="text" id="id-bloque" placeholder="Altura o hash del bloque" aria-label="Bloque" autocomplete="off" spellcheck="false">
+      <button class="boton primario" type="submit">Ver transacciones</button>
+      <button class="boton" type="button" id="ultimo">Último bloque</button>
+    </form>
+
+    <div id="avisos"></div>
+    <section class="panel" id="cab-bloque" hidden></section>
+
+    <section class="panel" id="resultado" hidden>
+      <div class="formulario" style="margin-bottom:1rem">
+        <input type="text" id="filtro" placeholder="Filtrar por TXID…" aria-label="Filtrar por TXID" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="tabla-wrap">
+        <table>
+          <thead><tr><th class="r">#</th><th>TXID</th><th class="r">Inputs</th><th class="r">Outputs</th><th class="r">BTC (salidas)</th><th class="r">Tamaño</th><th class="r">Comisión (BTC)</th></tr></thead>
+          <tbody id="txs"></tbody>
+        </table>
+      </div>
+      <div class="paginacion" id="paginacion"></div>
+    </section>
+  </main>
+
+  <div id="pie"></div>
+  <script src="js/api.js"></script>
+  <script src="js/transacciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadísticas del nodo · SatsExplorer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="index">
+  <div id="cabecera"></div>
+
+  <main class="contenedor">
+    <div class="titulo">
+      <div>
+        <h1>Estadísticas del nodo</h1>
+        <p>Estado en tiempo real de tu nodo Bitcoin: conexiones, mempool, red y sincronización.</p>
+      </div>
+      <span class="chip" id="actualizado">Esperando datos…</span>
+    </div>
+
+    <div id="avisos"></div>
+    <section class="rejilla" id="estadisticas" aria-label="Estadísticas principales"></section>
+    <section class="rejilla dos" id="paneles"></section>
+
+    <section class="panel">
+      <h2>Pares conectados</h2>
+      <div class="tabla-wrap">
+        <table>
+          <thead><tr><th>Dirección</th><th>Cliente</th><th>Sentido</th><th>Red</th><th class="r">Latencia</th><th class="r">Recibido</th><th class="r">Enviado</th></tr></thead>
+          <tbody id="pares"><tr><td colspan="7">Cargando…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="pie"></div>
+  <script src="js/api.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

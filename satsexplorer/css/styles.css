@@ -1,0 +1,103 @@
+/* ===== Variables (misma paleta que la página original) ===== */
+:root{
+  --btc:#f7931a; --btc-2:#e8820c;
+  --f900:#0b0f19; --f800:#111827; --f700:#1f2937; --f600:#374151;
+  --txt:#f3f4f6; --mute:#9ca3af; --ok:#34d399; --err:#f87171;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Courier New",Courier,monospace;
+}
+
+/* ===== Base ===== */
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--f900);color:var(--txt);font:16px/1.5 var(--sans)}
+::selection{background:var(--btc);color:#000}
+a{color:var(--btc);text-decoration:none}
+a:hover{color:var(--btc-2);text-decoration:underline}
+:focus-visible{outline:2px solid var(--btc);outline-offset:2px}
+h1{margin:0;font-size:1.6rem}
+h2{margin:0 0 1rem;font-size:1.1rem}
+.contenedor{width:100%;max-width:80rem;margin:0 auto;padding:0 1rem}
+main.contenedor{flex:1;padding-top:2rem;padding-bottom:2rem;display:flex;flex-direction:column;gap:1.75rem}
+.mono{font-family:var(--mono);font-size:.8rem}
+.r{text-align:right}
+.nota{margin:.4rem 0 0;font-size:.8rem;color:var(--mute)}
+.nota.ok{color:var(--ok)}
+.centro{text-align:center;margin-top:1rem}
+
+/* ===== Cabecera ===== */
+.cabecera{position:sticky;top:0;z-index:50;background:rgba(17,24,39,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--f700)}
+.cab-int{min-height:4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.5rem;padding-bottom:.5rem}
+.marca{display:flex;align-items:center;gap:.75rem;color:var(--txt)}
+.marca:hover{color:var(--txt);text-decoration:none}
+.logo{width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.75rem;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.3);color:var(--btc);font-size:1.35rem;font-weight:700;box-shadow:0 0 20px rgba(247,147,26,.15)}
+.marca-txt{font-weight:700;font-size:1.1rem;letter-spacing:.05em}
+.marca-txt b{color:var(--btc)}
+.chip{display:inline-block;padding:.1rem .6rem;border-radius:99px;background:var(--f700);border:1px solid rgba(247,147,26,.2);color:var(--btc);font:.72rem var(--mono)}
+.buscador{flex:1 1 220px;max-width:26rem;margin-left:auto}
+.buscador input,.formulario input{width:100%;padding:.55rem .9rem;background:var(--f900);border:1px solid var(--f700);border-radius:.75rem;color:var(--txt);font:.85rem var(--mono)}
+.buscador input:focus,.formulario input:focus{outline:0;border-color:var(--btc)}
+.buscador input.invalido{border-color:var(--err)}
+.nav{display:flex;gap:.25rem}
+.nav-link{padding:.4rem .9rem;border-radius:.6rem;color:var(--txt);font-size:.9rem}
+.nav-link:hover{background:var(--f700);text-decoration:none;color:var(--txt)}
+.nav-link.activo{background:var(--btc);color:#111;font-weight:600}
+.estado{display:flex;align-items:center;gap:.5rem;padding:.35rem .75rem;background:var(--f900);border:1px solid var(--f700);border-radius:.5rem;font-size:.75rem}
+.punto{width:.65rem;height:.65rem;border-radius:50%;background:var(--mute)}
+.punto.vivo{background:#10b981;animation:pulso 2s infinite}
+.punto.demo{background:var(--btc)}
+@keyframes pulso{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.punto.vivo{animation:none}}
+@media (max-width:640px){.chip-nodo{display:none}}
+
+/* ===== Títulos y avisos ===== */
+.titulo{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.titulo p{margin:.25rem 0 0;font-size:.9rem;color:var(--mute)}
+.alerta{padding:.75rem 1rem;border-radius:.75rem;border:1px solid rgba(247,147,26,.4);background:rgba(247,147,26,.08);font-size:.85rem}
+.alerta.error{border-color:rgba(248,113,113,.4);background:rgba(248,113,113,.08)}
+
+/* ===== Tarjetas y paneles ===== */
+.rejilla{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.rejilla.dos{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.tarjeta,.panel{background:var(--f800);border:1px solid var(--f700);border-radius:1rem}
+.tarjeta{padding:1.25rem;transition:border-color .2s}
+.tarjeta:hover{border-color:rgba(247,147,26,.5)}
+.tarjeta-tit{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.valor{margin-top:.6rem;font:700 1.6rem var(--mono);overflow-wrap:anywhere}
+.valor small{font-size:.75rem;font-weight:400;color:var(--mute)}
+.panel{padding:1.5rem;scroll-margin-top:5rem}
+dl{margin:0}
+.fila{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-top:1px solid var(--f700)}
+.fila:first-child{border-top:0}
+.fila dt{color:var(--mute);font-size:.85rem}
+.fila dd{margin:0;text-align:right;font-weight:600;font-size:.9rem;overflow-wrap:anywhere}
+.detalle{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 2.5rem}
+.detalle .fila{flex-direction:column;gap:.1rem}
+.detalle .fila dd{text-align:left}
+.progreso{height:.5rem;background:var(--f700);border-radius:.25rem;overflow:hidden;margin-top:.25rem}
+.progreso div{height:100%;background:var(--btc)}
+.acciones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+
+/* ===== Tablas ===== */
+.tabla-wrap{overflow-x:auto;border:1px solid var(--f700);border-radius:.75rem;background:var(--f900)}
+table{width:100%;min-width:640px;border-collapse:collapse}
+th,td{padding:.7rem 1rem;text-align:left;border-top:1px solid var(--f700);font-size:.88rem;white-space:nowrap}
+th{border-top:0;color:var(--mute);font-size:.75rem;font-weight:500}
+th.r,td.r{text-align:right}
+tbody tr:hover{background:rgba(31,41,55,.6)}
+tr.clic{cursor:pointer}
+tr.sel{background:rgba(247,147,26,.12)}
+
+/* ===== Botones y formularios ===== */
+.boton{padding:.6rem 1.1rem;border-radius:.75rem;border:1px solid var(--f700);background:var(--f900);color:var(--txt);font:600 .8rem var(--sans);cursor:pointer;text-decoration:none;display:inline-block}
+.boton:hover{border-color:var(--btc);color:#fff;text-decoration:none}
+.boton:disabled{opacity:.5;cursor:default}
+.boton.primario{background:var(--btc);border-color:var(--btc);color:#111}
+.boton.primario:hover{background:var(--btc-2)}
+.formulario{display:flex;flex-wrap:wrap;gap:.5rem}
+.formulario input{flex:1 1 280px;width:auto}
+.paginacion{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1rem;font-size:.85rem;color:var(--mute)}
+
+/* ===== Pie ===== */
+.pie{margin-top:2rem;padding:1.5rem 0;background:var(--f800);border-top:1px solid var(--f700);font:.75rem var(--mono);color:#6b7280}
+.pie .contenedor{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
